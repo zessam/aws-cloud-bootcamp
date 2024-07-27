@@ -1,6 +1,6 @@
 from flask import Flask
 from flask import request
-from flask_cors import CORS, cross_origin
+from flask_cors import CORS, cross_origin # type: ignore
 import os
 
 from services.home_activities import *
@@ -98,7 +98,7 @@ def data_activities():
 
 @app.route("/api/activities/<string:activity_uuid>", methods=['GET'])
 def data_show_activity(activity_uuid):
-  data = ShowActivity.run(activity_uuid=activity_uuid)
+  data = ShowActivity.run(activity_uuid=activity_uuid) # type: ignore
   return data, 200
 
 @app.route("/api/activities/<string:activity_uuid>/reply", methods=['POST','OPTIONS'])
